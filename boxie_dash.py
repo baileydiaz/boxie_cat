@@ -10,9 +10,9 @@ def main():
         
         # Inputs in the first column
         with col1:
-            creators = st.slider("Tableau Creators", min_value=1, max_value=10, value=2, step=1, key="creators")
-            explorers = st.slider("Tableau Explorers", min_value=1, max_value=10, value=2, step=1, key="explorers")
-            viewers = st.slider("Tableau Viewers", min_value=1, max_value=10, value=2, step=1, key="viewers")
+            creators = st.slider("Tableau Creators", min_value=0, max_value=10, value=2, step=1, key="creators")
+            explorers = st.slider("Tableau Explorers", min_value=0, max_value=10, value=2, step=1, key="explorers")
+            viewers = st.slider("Tableau Viewers", min_value=0, max_value=10, value=2, step=1, key="viewers")
         
         # Inputs in the second column
         with col2:
@@ -21,7 +21,7 @@ def main():
 
     rcosts = ds_salary
     pcosts = ds_salary
-    tcosts = ((75 * creators + 42 * explorers + 15 * viewers) + ba_salary)
+    tcosts = (((75 * creators + 42 * explorers + 15 * viewers)*12) + ba_salary)
 
     data = pd.DataFrame({
             "Tool": ["Streamlit Cost", "R Shiny Cost", "Tableau Cost"],
